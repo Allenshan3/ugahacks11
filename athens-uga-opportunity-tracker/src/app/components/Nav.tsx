@@ -11,12 +11,12 @@ export default function Nav() {
   const isAdmin = session?.user?.role === "admin";
   const [open, setOpen] = useState(false);
   const userName = session?.user?.name;
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
 
   return (
-    // testing comment ing changes 
-    // testing comment ing changes 2 for repo
-
-    <nav className="flex items-center justify-between px-8 md:px-12 py-6 border-b border-gray-200 bg-white/90 backdrop-blur-sm sticky top-0 z-40">
+<nav className="flex items-center justify-between px-8 md:px-12 py-6 backdrop-blur-sm sticky top-0 z-40 text-white" style={{backgroundColor: 'rgba(74, 74, 133, 0.9)'}}>      
       <div className="flex items-center gap-3">
         <Image 
           src="/bytehacks11icon.png" 
@@ -32,19 +32,19 @@ export default function Nav() {
 
       {/* Desktop menu */}
       <div className="hidden md:flex gap-8 text-sm font-medium">
-        <Link href="/" className="hover:text-red-600 transition">Home</Link>
+        <Link href="/">Home</Link>
 
         {isLoggedIn ? (
           <>
-            <Link href="/dashboard" className="hover:text-red-600 transition">Dashboard</Link>
-            <Link href="/nonauth" className="hover:text-red-600 transition">Search</Link>
+            <Link href="/dashboard">Dashboard</Link>
+            <Link href="/nonauth">Search</Link>
             {isAdmin && (
-              <Link href="/stats" className="hover:text-red-600 transition">Stats</Link>
+              <Link href="/stats">Stats</Link>
             )}
           </>
         ) : (
           <>
-            <Link href="/nonauth" className="hover:text-red-600 transition">Search</Link>
+            <Link href="/nonauth">Search</Link>
           </>
         )}
       </div>
@@ -52,7 +52,7 @@ export default function Nav() {
       {/* Desktop Auth buttons */}
       <div className="hidden md:flex gap-3 md:gap-4 items-center">
         {isLoggedIn && userName && (
-          <span className="text-sm text-gray-600">Hi, {userName.split(" ")[0]}!</span>
+          <span className="text-sm">Hi, {userName.split(" ")[0]}!</span>
         )}
         {isLoggedIn ? (
           <button
@@ -65,7 +65,7 @@ export default function Nav() {
           <>
             <Link 
               href="/login"
-              className="px-5 py-2 rounded-md border border-black hover:bg-black hover:text-white transition"
+              className="px-5 py-2 rounded-md border border-white"
             >
               Login
             </Link>
@@ -91,7 +91,7 @@ export default function Nav() {
 
       {/* Mobile menu overlay */}
       {open && (
-        <div className="absolute top-20 left-0 w-full bg-white shadow-lg px-8 py-6 flex flex-col gap-4 text-lg font-medium md:hidden">
+        <div className="absolute top-20 left-0 w-full bg-white shadow-lg px-8 py-6 flex flex-col gap-4 text-lg font-medium md:hidden text-black">
           <Link href="/" onClick={() => setOpen(false)}>Home</Link>
           
 
@@ -123,7 +123,7 @@ export default function Nav() {
           <>
             <Link 
               href="/login"
-              className="px-5 py-2 rounded-md border border-black hover:bg-black hover:text-white transition"
+              className="px-5 py-2 rounded-md border border-black"
             >
               Login
             </Link>
