@@ -65,14 +65,14 @@ export default function Login() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-4xl mb-2 font-bold">Athens & UGA</h1>
-          <h2 className="text-3xl text-red-600 font-semibold">
+          <h2 className="text-3xl text-purple-900 font-semibold">
             Opportunity Tracker
           </h2>
         </div>
 
         <div className="border-2 border-black rounded-xl p-6 bg-white shadow">
           <div className="text-center mb-4">
-            <h2 className="text-2xl font-bold">Welcome Back</h2>
+            <h2 className="text-2xl text-purple-900 font-bold">Welcome Back</h2>
             <p className="text-gray-600">Sign in to track your opportunities</p>
           </div>
 
@@ -114,7 +114,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full bg-red-600 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition"
+              className="w-full bg-purple-900 hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition"
             >
               {submitting ? "Signing In..." : "Sign In"}
             </button>
@@ -129,7 +129,7 @@ export default function Login() {
           </div>
 
           <div className="mt-6 text-center">
-            <a href="/signup" className="text-sm text-red-600 hover:underline">
+            <a href="/signup" className="text-sm text-purple-900hover:underline">
               Don&apos;t have an account? Sign up
             </a>
           </div>
