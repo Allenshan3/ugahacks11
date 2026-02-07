@@ -313,7 +313,7 @@ export default function NonAuthPage() {
 
         {/* Public Map showing job counts by city */}
         <div className="w-full max-w-6xl mt-6">
-          <Map />
+          <Map opportunities={opportunities} />
         </div>
         <OpportunityList
           opportunities={opportunities}
