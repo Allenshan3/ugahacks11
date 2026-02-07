@@ -13,10 +13,13 @@ export default function Nav() {
   const userName = session?.user?.name;
 
   return (
+    // testing comment ing changes 
+    // testing comment ing changes 2 for repo
+
     <nav className="flex items-center justify-between px-8 md:px-12 py-6 border-b border-gray-200 bg-white/90 backdrop-blur-sm sticky top-0 z-40">
       <div className="flex items-center gap-3">
         <Image 
-          src="/logo.png" 
+          src="/bytehacks11icon.png" 
           alt="Opportunity Tracker Logo" 
           width={40} 
           height={40}
