@@ -47,6 +47,7 @@ export default function Map() {
     }
 
     return (
+        // testing a change to the map page
         <div className='flex flex-col h-[80vh] gap-6'>
             <button className='geo_btn' onClick={handleClick}> GeoCaches {cachesOn ? 'on' : 'off'} </button>
                 <MapContainer className="map z-0" center={[33.960, -83.377]} zoom={14} scrollWheelZoom={true}>
