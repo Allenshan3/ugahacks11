@@ -10,6 +10,7 @@ import HeroSection from "../components/HeroSection";
 import OpportunityList from "../components/OpportunityList";
 import ResumeModal from "../components/ResumeModal";
 import Map from "../components/Map";
+import Image from "next/image";
 import { 
   Opportunity, 
   normalizeJSearchOpportunities,
@@ -37,7 +38,7 @@ export default function NonAuthPage() {
   const [isLoadingOpportunities, setIsLoadingOpportunities] = useState(false);
   const [opportunityError, setOpportunityError] = useState<string | null>(null);
   const [page, setPage] = useState(0);
-  const [currentSearchQuery, setCurrentSearchQuery] = useState("intern");
+  const [currentSearchQuery, setCurrentSearchQuery] = useState("volunteer");
   
   const totalPages = opportunities.length > 0 ? Math.ceil(opportunities.length / PAGE_SIZE) : 1;
   const visibleOpportunities = opportunities.length > 0
@@ -292,7 +293,8 @@ export default function NonAuthPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+    <div className="min-h-screen flex flex-col relative text-gray-900" style={{ backgroundColor: '#ffffff' }}>
+      
       <Nav />
 
       <main className="flex-grow w-full flex flex-col items-center px-6 py-12">

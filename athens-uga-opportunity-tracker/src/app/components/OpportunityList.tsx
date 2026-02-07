@@ -47,8 +47,8 @@ export default function OpportunityList({
         </p>
       )}
       
-      {/* JOB CARDS */}
-      <div className="space-y-4">
+      {/* JOB CARDS - GRID LAYOUT */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
         {visibleOpportunities.map((opportunity) => (
           <OpportunityCard
             key={opportunity.job_id}

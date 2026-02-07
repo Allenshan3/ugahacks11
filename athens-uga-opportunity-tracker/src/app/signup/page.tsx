@@ -137,7 +137,7 @@ export default function Signup() {
             </div>
 
             {error && (
-              <p className="text-sm text-red-600 text-center" role="alert">
+              <p className="text-sm text-center" role="alert" style={{ color: "#9F76A9" }}>
                 {error}
               </p>
             )}

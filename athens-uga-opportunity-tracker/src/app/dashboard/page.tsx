@@ -92,13 +92,13 @@ export default function Dashboard() {
         <div className="flex gap-3 mt-6">
           <Link 
             href="/job/new"
-            className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded inline-block"
+            className="text-white px-6 py-2 rounded inline-block hover:opacity-90" style={{backgroundColor: '#9F76A9'}}
           >
             + Add Application
           </Link>
           <button
-            onClick={exportToCSV}
-            className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded inline-block"
+            onClick={exportToCSV} 
+            className="text-white px-6 py-2 rounded inline-block hover:opacity-90" style={{backgroundColor: '#9F76A9'}}
           >
             Export to CSV
           </button>

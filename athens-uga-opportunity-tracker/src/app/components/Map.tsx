@@ -96,7 +96,7 @@ export default function Map({ opportunities }: MapProps) {
 
     return (
         <div className="flex flex-col w-full gap-4">
-            <div className="bg-blue-600 p-4 rounded-lg text-center font-bold text-white shadow-md">
+            <div className="p-4 rounded-lg text-center font-bold text-white shadow-md" style={{backgroundColor: '#9F76A9'}}>
                 {loading ? "Loading job locations..." : `Found ${totalCount} Jobs in ${aggregatedClusters.length} Cities`}
             </div>
 
