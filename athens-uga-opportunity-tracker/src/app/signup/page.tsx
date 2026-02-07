@@ -81,14 +81,14 @@ export default function Signup() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-4xl mb-2 font-bold">Athens & UGA</h1>
-          <h2 className="text-3xl text-red-600 font-semibold">
+          <h2 className="text-3xl text-purple-900 font-semibold">
             Opportunity Tracker
           </h2>
         </div>
 
         <div className="border-2 border-black rounded-xl p-6 bg-white shadow">
           <div className="text-center mb-4">
-            <h2 className="text-2xl font-bold">Create Account</h2>
+            <h2 className="text-2xl text-purple-900 font-bold">Create Account</h2>
             <p className="text-gray-600">Start tracking your career journey</p>
           </div>
 
@@ -159,14 +159,14 @@ export default function Signup() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full bg-red-600 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition"
+              className="w-full bg-purple-900 hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition"
             >
               {submitting ? "Creating Account..." : "Create Account"}
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <a href="/login" className="text-sm text-red-600 hover:underline">
+            <a href="/login" className="text-sm text-purple-900 hover:underline">
               Already have an account? Sign in
             </a>
           </div>

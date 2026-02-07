@@ -72,7 +72,7 @@ export default function Nav() {
 
             <Link
               href="/signup"
-              className="px-5 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 transition"
+              className="px-5 py-2 rounded-md border border-white"
             >
               Sign Up
             </Link>
