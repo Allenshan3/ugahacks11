@@ -53,22 +53,8 @@ export default function Signup() {
         return;
       }
 
-      // Automatically sign in the user after successful signup
-      const result = await signIn("credentials", {
-        email,
-        password,
-        redirect: false,
-      });
-
-      if (result?.error) {
-        setError("Account created but failed to sign in. Please try logging in.");
-        setSubmitting(false);
-        router.push("/login");
-        return;
-      }
-
-      // Redirect to dashboard
-      router.push("/dashboard");
+      // Redirect to verification page with email pre-filled
+      router.push(`/verify-email?email=${encodeURIComponent(email)}`);
     } catch (err) {
       console.error("Signup error:", err);
       setError("Something went wrong. Please try again.");
