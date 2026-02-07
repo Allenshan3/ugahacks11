@@ -15,6 +15,7 @@
     "leaflet.markercluster": "^1.5.3",
     "mongodb": "^7.0.0",
     "mongoose": "^8.20.0",
+    "motion": "^12.33.0",
     "next": "16.0.1",
     "next-auth": "^4.24.13",
     "pdf-parse": "^2.4.5",
@@ -23,6 +24,7 @@
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
     "react-leaflet": "^5.0.0-rc.2",
+    "react-leaflet-cluster": "^4.0.0"
     "resend": "^6.9.1"
   },
   "devDependencies": {

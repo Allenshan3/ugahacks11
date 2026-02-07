@@ -1,73 +1,152 @@
 'use client'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { useEffect, useState } from 'react'
-import MapResize from './MapResize'
-import L from 'leaflet'
-import "leaflet/dist/leaflet.css"
-import { posts } from "../data/posts"
-import { geoCaches } from '../data/geo-caches'
+import React, { useEffect, useState, useMemo } from 'react'
 
-const defaultIcon = L.icon({
-  iconUrl: "/images/marker-icon.png",
-  iconSize: [25, 41],
-  iconAnchor: [0, 0],
-  popupAnchor: [12, 0]
-});
+type JobSummary = {
+  _id?: string;
+  job_id?: string;
+  job_title?: string;
+  employer_name?: string;
+  job_apply_link?: string;
+  job_city?: string;
+  job_state?: string;
+};
 
-const geoCacheIcon = L.icon({
-  iconUrl: "/images/geo-cache-icon.png", 
-  iconSize: [25, 41],
-  iconAnchor: [0, 0],
-  popupAnchor: [12, 0]
-});
+type CityCluster = {
+  city: string;
+  state: string;
+  count: number;
+  jobs: JobSummary[];
+};
 
+interface MapProps {
+  opportunities?: JobSummary[];
+}
 
-export default function Map() {
-    const [items, setItems] = useState<any[]>([]);
+export default function Map({ opportunities }: MapProps) {
+    const [dbClusters, setDbClusters] = useState<CityCluster[]>([]);
+    const [dbTotalJobs, setDbTotalJobs] = useState(0);
+    const [dbLoading, setDbLoading] = useState(!opportunities);
+    const [openKey, setOpenKey] = useState<string | null>(null);
 
+    // Load database jobs only if no opportunities passed
     useEffect(() => {
-    fetch("/api/items")
-        .then(res => res.json())
-        .then(data => setItems(data));
-    }, []);
+        if (opportunities) {
+            setDbLoading(false);
+            return;
+        }
 
-    const itemsList = items.map((item) => (
-        <Marker key={item._id} position={[+item.x, +item.y]} icon={defaultIcon}>
-            <Popup className="flex flex-col items-center">
-                <h3>{item.title}</h3>
-                <p>x: {item.x}, y: {item.y}</p>
-            </Popup>
-        </Marker>
-    ));
+        async function loadMapData() {
+            try {
+                const res = await fetch("/api/jobs-for-map");
+                if (!res.ok) throw new Error('Failed to fetch map data');
+                const data = await res.json();
+                setDbClusters(data.clusteredJobs);
+                setDbTotalJobs(data.totalJobs);
+            } catch (error) {
+                console.error("Failed to load map data:", error);
+            } finally {
+                setDbLoading(false);
+            }
+        }
 
-    const [cachesOn, setCachesOn] = useState(false);
+        loadMapData();
+    }, [opportunities]);
 
-    function handleClick() {
-        setCachesOn(!cachesOn)
-    }
+    // Aggregate opportunities by city/state
+    const aggregatedClusters = useMemo(() => {
+        if (!opportunities || opportunities.length === 0) {
+            return dbClusters;
+        }
+
+        const cityMap: Record<string, CityCluster> = {};
+
+        opportunities.forEach((opp) => {
+            const city = opp.job_city || 'Unknown';
+            const state = opp.job_state || 'Unknown';
+            const key = `${city}, ${state}`;
+
+            if (!cityMap[key]) {
+                cityMap[key] = {
+                    city,
+                    state,
+                    count: 0,
+                    jobs: [],
+                };
+            }
+
+            cityMap[key].count += 1;
+            cityMap[key].jobs.push({
+                _id: opp.job_id || opp._id,
+                job_title: opp.job_title,
+                employer_name: opp.employer_name,
+                job_apply_link: opp.job_apply_link,
+                job_city: opp.job_city,
+                job_state: opp.job_state,
+            });
+        });
+
+        return Object.values(cityMap);
+    }, [opportunities, dbClusters]);
+
+    const totalCount = opportunities 
+        ? opportunities.length 
+        : dbTotalJobs;
+
+    const loading = opportunities ? false : dbLoading;
 
     return (
-        // testing a change to the map page
-        <div className='flex flex-col h-[80vh] gap-6'>
-            <button className='geo_btn' onClick={handleClick}> GeoCaches {cachesOn ? 'on' : 'off'} </button>
-                <MapContainer className="map z-0" center={[33.960, -83.377]} zoom={14} scrollWheelZoom={true}>
-                    <MapResize></MapResize>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    {itemsList}
-                    {cachesOn && 
-                        geoCaches.map((cache) => (
-                            <Marker key={cache.id} position={[+cache.x, +cache.y]} icon={geoCacheIcon}>
-                                <Popup className="flex flex-col items-center">
-                                    <h3>{cache.title}</h3>
-                                    <p>x: {cache.x}, y: {cache.y}</p>
-                                </Popup>
-                            </Marker>
-                        ))
-                    }
-                </MapContainer>
+        <div className="flex flex-col w-full gap-4">
+            <div className="bg-blue-600 p-4 rounded-lg text-center font-bold text-white shadow-md">
+                {loading ? "Loading job locations..." : `Found ${totalCount} Jobs in ${aggregatedClusters.length} Cities`}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+                {loading && (
+                    <div className="p-6 bg-white rounded shadow text-center text-gray-600">Loading...</div>
+                )}
+
+                {!loading && aggregatedClusters.length === 0 && (
+                    <div className="p-6 bg-white rounded shadow text-center text-gray-600">No job locations available.</div>
+                )}
+
+                {!loading && aggregatedClusters.map((c) => {
+                    const key = `${c.city}-${c.state}`;
+                    const isOpen = openKey === key;
+                    return (
+                        <div key={key} className="bg-white p-4 rounded shadow">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <div className="text-lg font-semibold">{c.city}, {c.state}</div>
+                                    <div className="text-sm text-gray-500">{c.count} {c.count === 1 ? 'job' : 'jobs'}</div>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg">{c.count}</div>
+                                    <button
+                                        onClick={() => setOpenKey(isOpen ? null : key)}
+                                        className="px-3 py-1 rounded bg-gray-100 text-sm text-gray-700 hover:bg-gray-200"
+                                    >
+                                        {isOpen ? 'Hide' : 'View'}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {isOpen && (
+                                <div className="mt-3 border-t pt-3 max-h-48 overflow-y-auto">
+                                    {c.jobs.map((job, idx) => (
+                                        <div key={job._id || idx} className="mb-2">
+                                            <div className="font-semibold text-sm">{job.job_title || 'Untitled'}</div>
+                                            <div className="text-xs text-gray-600">{job.employer_name || 'Unknown'}</div>
+                                            {job.job_apply_link && (
+                                                <a href={job.job_apply_link} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 underline">Apply</a>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )
+                })}
+            </div>
         </div>
-    );
+    )
 }

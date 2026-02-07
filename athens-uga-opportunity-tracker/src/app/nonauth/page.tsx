@@ -9,6 +9,7 @@ import Nav from "../components/Nav";
 import HeroSection from "../components/HeroSection";
 import OpportunityList from "../components/OpportunityList";
 import ResumeModal from "../components/ResumeModal";
+import Map from "../components/Map";
 import { 
   Opportunity, 
   normalizeJSearchOpportunities,
@@ -310,6 +311,10 @@ export default function NonAuthPage() {
           </div>
         )}
 
+        {/* Public Map showing job counts by city */}
+        <div className="w-full max-w-6xl mt-6">
+          <Map opportunities={opportunities} />
+        </div>
         <OpportunityList
           opportunities={opportunities}
           visibleOpportunities={visibleOpportunities}
