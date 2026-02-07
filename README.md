@@ -4,6 +4,8 @@ install mongodb mongoose
 npm install react@rc react-dom@rc leaflet
 npm install react-leaflet@next
 npm install -D @types/leaflet
+npm install leaflet.markercluster
+
 ```
   
 ## Run the development server
