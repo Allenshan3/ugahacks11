@@ -49,9 +49,6 @@ const UserSchema = new Schema<IUser, UserModel, IUserMethods>(
       default: "student",
     },
   },
-  {
-    timestamps: true,
-  }
 );
 
 // Hash password before saving
