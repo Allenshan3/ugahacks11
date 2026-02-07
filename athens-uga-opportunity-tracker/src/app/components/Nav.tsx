@@ -31,7 +31,7 @@ export default function Nav() {
       </div>
 
       {/* Desktop menu */}
-      <div className="hidden md:flex gap-8 text-sm font-medium">
+      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8 text-sm font-medium">
         <Link href="/">Home</Link>
 
         {isLoggedIn ? (
