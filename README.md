@@ -15,7 +15,7 @@ Git
 Map overlaying
 - The interactive map under the search tab would not be displayed on the screen properly when scrolling down (the map would still be seen over the navigation bar)
 - The map would also be displayed over the upload resume modal 
-- Adressed this bug/issue by adjusting the z-index variable to push the map back and to correct the overlaying issue
+- Adressed this bug/issue by adjusting the z-index variable to push the map back and to correct the overlaying issues
 
 UI issues
 - Encountered the navbar, footer, and buttons within divs not centering or aligning properly
