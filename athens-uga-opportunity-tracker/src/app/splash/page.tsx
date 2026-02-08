@@ -54,7 +54,7 @@ export default function Hero() {
         >
           <div className="text-center">
             <h1 className="text-3xl md:text-5xl font-cinzel font-bold tracking-widest text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-              Community Volunteering Opportunities Tracker
+              Georgia Community Job/Internship Opportunities Tracker
             </h1>
           </div>
         </motion.div>
@@ -66,8 +66,8 @@ export default function Hero() {
           className="flex flex-col items-center gap-4"
         >
           <p className="font-cinzel font-bold tracking-widest text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-            Find community-focused volunteer roles that match your time, skills, and interests. Create and track
-            your events all in one place.
+            Helping you find jobs and internships within the Georgia community that match your time, skills, and interests. Create and track
+            your jobs and internships applications in one place.
           </p>
 
           <motion.button
