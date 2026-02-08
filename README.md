@@ -32,7 +32,7 @@ Database
 - Used MongoDB to store user data (email, password, temporary verification code when signing up)
 
 API limitations
-- Some of the API's where quite janky and unreliable and some API's came with strict call/usage limitations
+- Some of the API's were quite janky and unreliable and some API's came with strict call/usage limitations
 - Addressed those issues by rotating API keys to maintain access to APIs and used API calls with information returned to keep it reliable.
 
 ## Team Members
