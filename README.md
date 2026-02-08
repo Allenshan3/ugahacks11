@@ -17,7 +17,7 @@ Our team collaboratively designed, developed, and deployed this full-stack web a
 
 ## Tools Utilized
 ```
-React, Node.js, Next.js, TypeScript, JavaScript, Authentication & Authorization, 
+React, Node.js, Next.js, TypeScript, JavaScript, Authentication & Authorization
 
 ```
 
