@@ -27,8 +27,8 @@ Database
 
 
 ## Team Members
-Allen Shan
 Allen Chiu
+Allen Shan
 Ethan Esclamado
 Bryan Perez
 
@@ -39,10 +39,10 @@ React, Node.js, Next.js, TypeScript, JavaScript, Authentication & Authorization
 
 ## Public Frameworks
 
-https://resend.com/features/email-api
-https://wiki.openstreetmap.org/wiki/API
-https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch
-https://console.groq.com/docs/model/openai/gpt-oss-20b
+- https://resend.com/features/email-api
+- https://wiki.openstreetmap.org/wiki/API
+- https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch
+- https://console.groq.com/docs/model/openai/gpt-oss-20b
 
 
 ## Run these commands in terminal
