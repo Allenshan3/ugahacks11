@@ -1,25 +1,13 @@
-## Team Members
-```
-Allen Shan
-Allen Chiu
-Ethan Esclamado
-Bryan Perez
-
-```
-
 ## Purpose of Project
 Helping you find jobs and internships within the Georgia community that match your time, skills, and interests. Create and track your jobs and internships applications in one place.
 Our team collaboratively designed, developed, and deployed this full-stack web application using React + Next.js, Node.js and MongoDB. Our application is a Athens/UGA Job, Internship or Opportunity Tracker. Users can search for jobs or paste a resume that will be parsed by a LLM (OpenAI Open-Source model hosted by Groq) that return ATS keywords relevant to the resume. Users can then click the keywords to query an API (Jsearch API from RapidAPI) with those keywords to find jobs relevant to their resume. Users can CREATE (add jobs returned by the API to the tracker), READ (read information about the jobs on the tracker), UPDATE (update job application information in the tracker), and DELETE (delete jobs from the tracker). 
 
 
 ## Tools Utilized
-```
 React, Node.js, Next.js, TypeScript, JavaScript, Authentication & Authorization, 
 
-```
 
 ## Problems Encountered
-```
 Git
 - Dealt with merge conflicts with differing development branches throughout the course of the weekend
 - Worked together to sort out branches and correctly merge them into our main branch
@@ -46,17 +34,21 @@ Database
 API limitations
 - some of the API's where quite janky and unreliable and some API's came with strict call/usage limitations
 - Addressed those issues by rotating API keys to maintain access to APIs and used API calls with information returned to keep it reliable.
-```
+
+## Team Members
+Allen Shan
+Allen Chiu
+Ethan Esclamado
+Bryan Perez
+
+
 
 
 ## Public Frameworks
-```
-https://resend.com/features/email-api
-https://wiki.openstreetmap.org/wiki/API
-https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch
-https://console.groq.com/docs/model/openai/gpt-oss-20b
-
-```
+- https://resend.com/features/email-api
+- https://wiki.openstreetmap.org/wiki/API
+- https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch
+- https://console.groq.com/docs/model/openai/gpt-oss-20b
 
 
 ## Run these commands in terminal
