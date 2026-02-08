@@ -23,8 +23,24 @@ React, Node.js, Next.js, TypeScript, JavaScript, Authentication & Authorization,
 
 ## Problems Encountered
 ```
-Git, Map overlaying, UI issues, Card layout, Database
+Git
+- Dealt with merge conflicts throughout the course of the weekend
+- Worked together to sort out branches and correctly merge them into our main branch
 
+Map overlaying
+- The interactive map under the search tab would not be displayed on the screen properly when scrolling down (the map would still be seen over the navigation bar)
+- The map would also be displayed over the page to upload resume
+- Adjusted z-index variable to correct the overlaying issues
+
+UI issues
+- Updated layout, color scheme, and other front-end features to fit the UGA Hacks 11 magic theme
+- Centered navigation bar buttons
+
+Card layout
+
+Database
+- Had trouble setting up email verification to correctly be stored in the database
+- Used MongoDB to store user data (email, password, temporary verification code when signing up)
 ```
 
 
