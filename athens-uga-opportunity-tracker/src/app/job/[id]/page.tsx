@@ -538,14 +538,14 @@ export default function JobFormPage() {
                 <div className="hidden lg:flex gap-3 pt-4">
                   <button 
                     type="submit"
-                    className="bg-red-600 text-white hover:bg-red-700 px-6 py-2 rounded"
+                    className="border border-[#A983B2] text-[#A983B2] hover:text-[#A983B2] hover:border-[#A983B2] px-6 py-2 rounded"
                   >
                     {isNewJob ? "Add Opportunity" : "Save Changes"}
                   </button>
                   <button 
                     type="button"
                     onClick={handleCancel}
-                    className="border border-black text-black hover:text-red-600 hover:border-red-600 px-6 py-2 rounded"
+                    className="border border-[#A983B2] text-[#A983B2] hover:text-[#A983B2] hover:border-[#A983B2] px-6 py-2 rounded"
                   >
                     Cancel
                   </button>
@@ -557,14 +557,14 @@ export default function JobFormPage() {
             <div className="flex lg:hidden gap-3 pt-8 order-3">
               <button 
                 type="submit"
-                className="bg-red-600 text-white hover:bg-red-700 px-6 py-2 rounded"
+                className="border border-[#A983B2] text-[#A983B2] hover:text-[#A983B2] hover:border-[#A983B2] px-6 py-2 rounded"
               >
                 {isNewJob ? "Add Opportunity" : "Save Changes"}
               </button>
               <button 
                 type="button"
                 onClick={handleCancel}
-                className="border border-black text-black hover:text-red-600 hover:border-red-600 px-6 py-2 rounded"
+                className="border border-[#A983B2] text-[#A983B2] hover:text-[#A983B2] hover:border-[#A983B2] px-6 py-2 rounded"
               >
                 Cancel
               </button>
