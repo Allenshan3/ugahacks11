@@ -27,7 +27,6 @@ Database
 
 
 ## Team Members
-```
 Allen Shan
 Allen Chiu
 Ethan Esclamado
