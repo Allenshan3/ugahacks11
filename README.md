@@ -36,10 +36,10 @@ API limitations
 - Addressed those issues by rotating API keys to maintain access to APIs and used API calls with information returned to keep it reliable.
 
 ## Team Members
-Allen Chiu
-Allen Shan
-Ethan Esclamado
-Bryan Perez
+- Allen Chiu
+- Allen Shan
+- Ethan Esclamado
+- Bryan Perez
 
 
 
