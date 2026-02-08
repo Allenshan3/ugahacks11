@@ -37,7 +37,7 @@ export default function NonAuthPage() {
   const [isLoadingOpportunities, setIsLoadingOpportunities] = useState(false);
   const [opportunityError, setOpportunityError] = useState<string | null>(null);
   const [page, setPage] = useState(0);
-  const [currentSearchQuery, setCurrentSearchQuery] = useState("volunteer");
+  const [currentSearchQuery, setCurrentSearchQuery] = useState("intern");
   
   const totalPages = opportunities.length > 0 ? Math.ceil(opportunities.length / PAGE_SIZE) : 1;
   const visibleOpportunities = opportunities.length > 0

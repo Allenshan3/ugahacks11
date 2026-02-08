@@ -25,7 +25,7 @@ export default function HeroSection({ isLoggedIn, onPasteResume, onSearch }: Her
         Opportunity Tracker
       </p>
       <h1 className="mt-4 text-4xl md:text-5xl font-black leading-tight">
-        Discover Community Volunteering Opportunities
+        Discover Jobs and Internships in the Georgia Community
       </h1>
       <p className="mt-4 text-lg text-gray-600">
         Browse community volunteer roles. 
