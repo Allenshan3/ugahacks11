@@ -10,7 +10,6 @@ import HeroSection from "../components/HeroSection";
 import OpportunityList from "../components/OpportunityList";
 import ResumeModal from "../components/ResumeModal";
 import Map from "../components/Map";
-import Image from "next/image";
 import { 
   Opportunity, 
   normalizeJSearchOpportunities,
@@ -317,6 +316,7 @@ export default function NonAuthPage() {
         <div className="w-full max-w-6xl mt-6">
           <Map opportunities={opportunities} />
         </div>
+
         <OpportunityList
           opportunities={opportunities}
           visibleOpportunities={visibleOpportunities}
