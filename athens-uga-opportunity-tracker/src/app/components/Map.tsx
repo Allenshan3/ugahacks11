@@ -120,8 +120,7 @@ export default function Map({ opportunities }: MapProps) {
                 {loading ? "Loading job locations..." : `Found ${totalCount} Jobs in ${clustersWithCoords.length} Cities`}
             </div>
 
-            <div className="w-full h-[450px] rounded-lg overflow-hidden border-2 border-slate-200 shadow-md">
-                {loading ? (
+<div className="w-full h-[450px] rounded-lg overflow-hidden border-2 border-slate-200 shadow-md z-0">                {loading ? (
                     <div className="h-full flex items-center justify-center bg-gray-100 text-gray-600">
                         Loading map...
                     </div>
