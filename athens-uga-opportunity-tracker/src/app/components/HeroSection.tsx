@@ -21,17 +21,17 @@ export default function HeroSection({ isLoggedIn, onPasteResume, onSearch }: Her
 
   return (
     <section className="w-full max-w-4xl text-center mt-8">
-      <p className="text-sm font-semibold uppercase tracking-widest text-red-600">
+      <p className="text-sm font-semibold uppercase tracking-widest" style={{color: '#9F76A9'}}>
         Opportunity Tracker
       </p>
       <h1 className="mt-4 text-4xl md:text-5xl font-black leading-tight">
-        Discover Athens &amp; UGA Opportunities
+        Discover Jobs and Internships in the Georgia Community
       </h1>
       <p className="mt-4 text-lg text-gray-600">
-        Browse campus jobs, internships, and volunteer roles. 
+        Browse community volunteer roles. 
         {isLoggedIn 
-          ? " Save and track your applications." 
-          : " Create an account to save and track your applications."}
+          ? " Save and track your opportunities." 
+          : " Create an account to save and track your opportunities."}
       </p>
 
       {/* Conditional Buttons Based on Auth State */}
@@ -39,7 +39,8 @@ export default function HeroSection({ isLoggedIn, onPasteResume, onSearch }: Her
         {isLoggedIn ? (
           <button
             onClick={onPasteResume}
-            className="px-6 py-3 rounded-full bg-red-600 text-white font-semibold shadow hover:bg-red-700 transition"
+            className="px-6 py-3 rounded-full text-white font-semibold shadow hover:opacity-90 transition"
+            style={{backgroundColor: '#9F76A9'}}
           >
             Paste Resume
           </button>
@@ -47,7 +48,8 @@ export default function HeroSection({ isLoggedIn, onPasteResume, onSearch }: Her
           <>
             <Link 
               href="/signup"
-              className="px-6 py-3 rounded-full bg-red-600 text-white font-semibold shadow hover:bg-red-700 transition inline-block"
+              className="px-6 py-3 rounded-full text-white font-semibold shadow hover:opacity-90 transition inline-block"
+              style={{backgroundColor: '#9F76A9'}}
             >
               Create Account
             </Link>
@@ -89,7 +91,8 @@ export default function HeroSection({ isLoggedIn, onPasteResume, onSearch }: Her
           />
           <button
             type="submit"
-            className="px-4 py-2 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition whitespace-nowrap"
+            className="px-4 py-2 text-white rounded-full font-semibold hover:opacity-90 transition whitespace-nowrap"
+            style={{backgroundColor: '#9F76A9'}}
           >
             Search
           </button>

@@ -31,7 +31,7 @@ export default function Nav() {
       </div>
 
       {/* Desktop menu */}
-      <div className="hidden md:flex gap-8 text-sm font-medium">
+      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8 text-sm font-medium">
         <Link href="/">Home</Link>
 
         {isLoggedIn ? (
@@ -57,7 +57,10 @@ export default function Nav() {
         {isLoggedIn ? (
           <button
             onClick={() => signOut({ callbackUrl: "/" })}
-            className="px-5 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 transition"
+            className="px-5 py-2 rounded-md text-white transition"
+            style={{ backgroundColor: "#9F76A9" }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = "0.8"}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
           >
             Logout
           </button>
@@ -72,7 +75,7 @@ export default function Nav() {
 
             <Link
               href="/signup"
-              className="px-5 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 transition"
+              className="px-5 py-2 rounded-md border border-white"
             >
               Sign Up
             </Link>
@@ -115,7 +118,8 @@ export default function Nav() {
                 signOut({ callbackUrl: "/" });
                 setOpen(false);
               }}
-              className="px-5 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 transition"
+              className="px-5 py-2 rounded-md text-white transition"
+              style={{ backgroundColor: "#9F76A9" }}
             >
               Logout
             </button>
@@ -130,7 +134,8 @@ export default function Nav() {
 
             <Link
               href="/signup"
-              className="px-5 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 transition"
+              className="px-5 py-2 rounded-md text-white transition"
+              style={{ backgroundColor: "#9F76A9" }}
             >
               Sign Up
             </Link>

@@ -9,6 +9,7 @@ import Nav from "../components/Nav";
 import HeroSection from "../components/HeroSection";
 import OpportunityList from "../components/OpportunityList";
 import ResumeModal from "../components/ResumeModal";
+import Map from "../components/Map";
 import { 
   Opportunity, 
   normalizeJSearchOpportunities,
@@ -291,7 +292,8 @@ export default function NonAuthPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+    <div className="min-h-screen flex flex-col relative text-gray-900" style={{ backgroundColor: '#ffffff' }}>
+      
       <Nav />
 
       <main className="flex-grow w-full flex flex-col items-center px-6 py-12">
@@ -309,6 +311,11 @@ export default function NonAuthPage() {
             </p>
           </div>
         )}
+
+        {/* Public Map showing job counts by city */}
+        <div className="w-full max-w-6xl mt-6">
+          <Map opportunities={opportunities} />
+        </div>
 
         <OpportunityList
           opportunities={opportunities}

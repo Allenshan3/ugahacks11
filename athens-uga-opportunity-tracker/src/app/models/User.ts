@@ -9,6 +9,9 @@ export interface IUser {
   email: string;
   password: string;
   role: Role;
+  isEmailVerified: boolean;
+  verificationCode?: string;
+  verificationCodeExpires?: Date;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -48,10 +51,19 @@ const UserSchema = new Schema<IUser, UserModel, IUserMethods>(
       enum: ["student", "admin"],
       default: "student",
     },
+    isEmailVerified: {
+      type: Boolean,
+      default: false,
+    },
+    verificationCode: {
+      type: String,
+      select: false,
+    },
+    verificationCodeExpires: {
+      type: Date,
+      select: false,
+    },
   },
-  {
-    timestamps: true,
-  }
 );
 
 // Hash password before saving
